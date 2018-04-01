@@ -1,0 +1,2 @@
+# edureka
+Practicing Django
