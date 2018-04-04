@@ -12,5 +12,6 @@ urlpatterns = [
          views.employeesUpdateAPIViews.as_view(), name='edit'),
     path('employee/<first_name>/delete',
          views.employeesDeleteAPIViews.as_view(), name='delete'),
-    path('employee/create', views.employeesCreateAPIViews.as_view(), name='create')
+    path('employee/create',
+         views.employeesCreateAPIViews.as_view(), name='create')
 ]

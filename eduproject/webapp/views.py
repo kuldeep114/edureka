@@ -19,10 +19,16 @@ class employeeList(APIView):
         return Response(serializer.data)
 
 
-class employeesCreateAPIViews(generics.RetrieveAPIView):
+class employeesCreateAPIViews(generics.CreateAPIView):
 
-    queryset = employees.objects.all()
-    serializer_class = employeeSerializer
+    # queryset = employees.objects.all()
+    # serializer_class = employeeCreateSerializer
+
+    def post(self, request):
+
+        employees1 = employees.objects.all()
+        serializer = employeeCreateSerializer(employees1, many=True)
+        return Response(serializer.data)
 
 
 class employeesDetailAPIViews(generics.RetrieveAPIView):
@@ -47,4 +53,3 @@ class employeesDeleteAPIViews(generics.DestroyAPIView):
     serializer_class = employeeSerializer
     lookup_field = 'slug'
     lookup_url_kwarg = 'first_name'
-
