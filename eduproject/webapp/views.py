@@ -21,15 +21,8 @@ class employeeList(APIView):
 
 class employeesCreateAPIViews(generics.CreateAPIView):
 
-    # queryset = employees.objects.all()
-    # serializer_class = employeeCreateSerializer
-
-    def post(self, request):
-
-        employees1 = employees.objects.all()
-        serializer = employeeCreateSerializer(employees1, many=True)
-        return Response(serializer.data)
-
+    queryset = employees.objects.all()
+    serializer_class = employeeCreateSerializer
 
 class employeesDetailAPIViews(generics.RetrieveAPIView):
 
